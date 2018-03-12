@@ -65,8 +65,10 @@
     $(document).ready(function(){
       <%for(var i = 0; i < data.length; i++){%>
         var div = $("<div class = 'post'></div>");
+        var s = "<%- data[i]['content']%>";
+        s.replace(/<br\s*[\/]?>/gi, "\n");
         var t = $("<h1></h1>").html("<%- data[i]['title']%>");
-        var p = $("<p></p>").html("<%- data[i]['content']%>");
+        var p = $("<p></p>").html(s);
         div.append(t);
         div.append(p);
         $("#posts").append(div);

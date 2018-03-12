@@ -10,6 +10,16 @@ var con = mysql.createConnection({
   password: "burdenbear"
 });
 
+function htmlEscape(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/(?:\r\n|\r|\n)/g, '<br/>');
+}
+
 con.connect(function(err){
   if(err) throw err;
   console.log("connected");
@@ -33,10 +43,10 @@ app.get('/posts', function(req, res){
 
 app.post('/submit', bodyParser.urlencoded({extended: true}), function(req, res){
   var sql = "INSERT INTO posts (title, content) VALUES ?";
-  str = req.body.post.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+  var s = htmlEscape(req.body.post);
   var values = [
     [String(req.body.title),
-    String(str)]
+    String(s)]
   ];
   con.query(sql, [values], function(err, result){
     if(err) throw err;
