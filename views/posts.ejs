@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Open+Sans" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <title>
+      SSEF WTF
+    </title>
+    <style>
+      body{
+        background-color: black;
+      }
+      #header{
+        color: white;
+        display: inline-block;
+        font-family: 'Open Sans';
+        padding-left: 20px;
+        margin: 0;
+      }
+      hr{
+        color: white;
+      }
+      a{
+        text-decoration: none;
+      }
+      #header:hover, #write:hover{
+        color: red;
+      }
+      div{
+        color: white;
+      }
+      .post{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding-left: 25px;
+        font-family: 'Open Sans';
+      }
+      .break{
+        width: 80%;
+      }
+      #write{
+        color: white;
+        font-family: 'Open Sans';
+        padding-right: 20px;
+        float: right;
+      }
+      #top{
+        border-bottom: solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "top">
+      <a href = "/"><h1 id = "header">SSEF WTF</h1></a>
+      <a href = "/write"><p id = "write"><em>Write your own SSEF WTF story</em></p></a>
+    </div>
+    </br>
+    <div id = "posts">
+    </div>
+  </body>
+  <script>
+    $(document).ready(function(){
+      <%for(var i = 0; i < data.length; i++){%>
+        var div = $("<div class = 'post'></div>");
+        var t = $("<h1></h1>").html("<%- data[i]['title']%>");
+        var p = $("<p></p>").html("<%- data[i]['content']%>");
+        div.append(t);
+        div.append(p);
+        $("#posts").append(div);
+        $("#posts").append("<hr class = 'break'>");
+      <%}%>
+    });
+  </script>
+</html>

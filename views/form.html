@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Open+Sans" rel="stylesheet">
+    <title>
+      SSEF WTF
+    </title>
+    <style>
+      body{
+        background-color: black;
+      }
+      #title{
+        text-align: center;
+        color: white;
+        font-family: 'Open Sans';
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+      ul{
+        color: white;
+      }
+      p{
+        color: white;
+        font-family: 'Open Sans';
+        width: 80vw;
+        margin: 0 auto;
+        text-align: center;
+      }
+      form{
+        color: white;
+        font-family: 'Open Sans';
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 30px;
+      }
+      textarea, #titleField{
+        background-color: transparent;
+        color: white;
+        font-size: 1em;
+        width: 80%;
+        padding: 5px;
+        font-family: 'Open Sans';
+        margin-left: 10%;
+      }
+      #title{
+        font-size: 2em;
+      }
+      label{
+        padding-bottom: 10px;
+        margin-left: 10%;
+      }
+      #subBtn{
+        margin-top: 10px;
+        margin-left: 10%;
+        background-color: transparent;
+        color: white;
+        border-radius: 5px;
+        font-size: 1em;
+        font-family: 'Open Sans';
+      }
+      #subBtn:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id = "title">Share your SSEF WTF story</h1>
+    <p>
+      Remember, this is a platform to share criticism and feedback about the SSEF judging process, and judges.
+      <br/><b>No flaming, no identification of people, and no trolling.</b><br/>
+      Any posts that are deemed offensive will be removed from this site without explanation.
+    </p>
+    <form action = "/submit", method = "post">
+      <label>Title:</label><br/>
+      <input type = "text" name = "title" id = "titleField" placeholder = "1 Line" required = "true"><br/><br/>
+      <label>Your Post:</label><br/>
+      <textarea name = "post" rows = "10" cols = "110" required = "true"></textarea><br/>
+      <input id = "subBtn" type = "submit" value = "Submit">
+    </form>
+  </body>
+</html>
